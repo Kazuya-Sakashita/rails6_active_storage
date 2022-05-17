@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Portrait:</strong>
+  <% if @user.portraits.attached? %>
+    <% @user.portraits.each do |portrait| %>
+      <%= image_tag portrait.variant(resize_to_limit: [100, 100]) %>
+    <% end %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
